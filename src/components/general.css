@@ -1,0 +1,16 @@
+.mapboxgl-popup-content {
+  padding: 0px;
+}
+.weather {
+  font-size: 18px;
+  padding: 7px 15px;
+  background-color: rgba(94, 191, 255, 0.397);
+  margin-bottom: 10px;
+}
+.conditions {
+  text-align: start;
+  padding-left: 18px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(109, 109, 109);
+}
