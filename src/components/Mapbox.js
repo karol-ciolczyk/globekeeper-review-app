@@ -54,7 +54,7 @@ export const Mapbox = function () {
     if (!weather) return;
     map.current.flyTo({
       center: currentCoordinates.reverse(),
-      zoom: 7,
+      zoom: 6,
     });
     marker
       .setLngLat(currentCoordinates)
