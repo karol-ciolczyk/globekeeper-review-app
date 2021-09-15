@@ -85,20 +85,22 @@ export const Mapbox = function () {
     const markerData = JSON.parse(localStorage.getItem("marker"));
     console.log(markerData);
 
-    map.current.flyTo({
-      center: markerData.coordinates,
-      zoom: 7,
-    });
-    marker
-      .setLngLat(markerData.coordinates)
-      .setPopup(
-        new mapboxgl.Popup({ closeOnClick: false }).setHTML(
-          `<h4 class="weather">Weather condition: <h4/><p class="conditions"> humidity: ${markerData.humidity} 💧<p/><p class="conditions"> temp: ${markerData.temp} 🌡️<p/><p class="conditions"> temp max: ${markerData.temp_max} 🌡️<p/>
+    if (markerData?.coordinates) {
+      map.current.flyTo({
+        center: markerData.coordinates,
+        zoom: 7,
+      });
+      marker
+        .setLngLat(markerData.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ closeOnClick: false }).setHTML(
+            `<h4 class="weather">Weather condition: <h4/><p class="conditions"> humidity: ${markerData.humidity} 💧<p/><p class="conditions"> temp: ${markerData.temp} 🌡️<p/><p class="conditions"> temp max: ${markerData.temp_max} 🌡️<p/>
           <p class="conditions"> temp min: ${markerData.temp_min} 🌡️<p/>`
+          )
         )
-      )
-      .addTo(map.current);
-    marker.togglePopup();
+        .addTo(map.current);
+      marker.togglePopup();
+    }
   }, []);
 
   return (
